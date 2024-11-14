@@ -14,7 +14,9 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub CommandButton1_Click()
-0   On Error GoTo 0
+    '(^v^)
+       
+    On Error GoTo ErrorHandler
     
     Dim h As Hyperlink
     Dim sOld As String
@@ -33,7 +35,11 @@ Private Sub CommandButton1_Click()
     For Each h In ActiveSheet.Hyperlinks
         h.Address = Replace(h.Address, sOld, sNew)
     Next h
-    MsgBox ("Terminado")
+    MsgBox ("¡Hecho!")
+    Unload Me
+    Exit Sub
+ErrorHandler:
+    MsgBox ("Ha ocurrido un error.")
     Unload Me
 End Sub
 
